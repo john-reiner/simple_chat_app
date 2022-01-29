@@ -15,7 +15,11 @@
   </head>
 
   <header>
-    <%= render  "layouts/navbars/not_logedin_navbar" %>
+    <% if @authenticated_user %>
+      <%= render  "layouts/navbars/logedin_navbar" %>
+    <% else %>
+      <%= render  "layouts/navbars/not_logedin_navbar" %>
+    <% end %>
   </header>
 
   <body>

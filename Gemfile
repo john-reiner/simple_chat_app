@@ -72,3 +72,5 @@ group :test do
 end
 
 gem 'bcrypt'
+gem "jwt"
+gem 'faker'
