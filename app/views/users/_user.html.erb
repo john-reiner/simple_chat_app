@@ -1,0 +1,4 @@
+<div class="friends-links">
+    <p><%= user.screen_name %></p>
+    <%= button_to "Start Chat", new_chat_path(id: user.id), method: :post%>
+</div>

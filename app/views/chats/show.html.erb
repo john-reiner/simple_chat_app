@@ -1,0 +1,11 @@
+<div class="container">
+    <%= link_to  "Messages", chats_path %>
+    <h2 class="text-center"><%= @chat.name %></h2>
+    <div id="messages">
+        <%= turbo_stream_from @chat %>
+        
+        <%= render  @chat.messages %>
+
+    </div>
+    <%= render  "layouts/new_message_form" %>
+</div>

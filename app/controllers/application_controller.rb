@@ -10,9 +10,11 @@ class ApplicationController < ActionController::Base
             @authenticated_user = User.find_by(id: decoded_token["user_id"])
             if @authenticated_user == nil
                 session[:token] = nil
+                redirect_to root_path
             end
+
         else
-            render status: :unauthorized
+            redirect_to new_session_path
         end
     end
 

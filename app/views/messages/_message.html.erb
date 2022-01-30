@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col">
+        <div class="message-content">
+            <div class="message-info">
+                <strong><%= message.user.screen_name %></strong>
+                <small class="text-muted"><%= message.created_at.localtime.strftime("%I:%M %p") %></small>
+            </div>
+
+            <p><%= message.content %></p>
+        </div>
+    
+    </div>
+</div>

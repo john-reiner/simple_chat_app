@@ -13,3 +13,37 @@
  *= require_tree .
  *= require_self
  */
+
+#messages {
+    height: 80vh;
+    overflow-y: scroll;
+    border: blue solid 1px;
+    padding: 1em;
+}
+
+.message-content {
+
+    border: solid red 1px;
+    max-width: auto;
+    padding: 1em;
+    border-radius: 3px;
+    margin-bottom: 1em;
+}
+
+.message-info {
+    /* border: red solid 1px; */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-right: 1em;
+}
+.message-info strong {
+    margin-right: .5em;
+}
+
+#messages-heading {
+    padding-top: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
     before_action :authenticate_user, only: %i[ show ]
     def show
-    
+        @users = User.all_except(@authenticated_user)
+        @messages = Message.all
+
     end
 
     def new
