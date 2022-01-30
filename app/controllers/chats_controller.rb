@@ -13,11 +13,19 @@ class ChatsController < ApplicationController
 
     def new
         @chat = Chat.new
-        byebug
     end
 
     def create
-    
+        other_user = User.find_by(screen_name: params[:chat][:name])
+
+        if other_user
+            @chat = Chat.create(name: other_user.screen_name)
+            redirect_to @chat
+
+        else
+            redirect_to new_chat_path, notice: "Screen Name '#{params[:chat][:name]}' not found"
+        end
+
     end
 
     def update

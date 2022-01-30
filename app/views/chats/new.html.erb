@@ -1,1 +1,13 @@
 <h2>new</h2>
+
+<% if flash.notice || @chat.errors.count > 0%>
+  <div class="alert alert-danger">
+    <%= flash.notice || @chat.errors.full_messages %>
+  </div>
+<% end %>
+<%= form_for @chat do |f| %>
+    <%= f.label :name, "Screen Name" %>
+    <%= f.text_field :name %>
+    <%= f.submit %>
+<% end %>
+
