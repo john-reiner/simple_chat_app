@@ -12,7 +12,6 @@ class ChatsController < ApplicationController
     end
 
     def new
-        
         @chat = Chat.new
     end
 
@@ -22,8 +21,11 @@ class ChatsController < ApplicationController
 
         if other_user
             @chat = Chat.create(name: other_user.screen_name)
-            @chat.messages.create(user_id: @authenticated_user.id, content: "#{@authenticated_user.screen_name} joined this chat!")
-            @chat.messages.create(user_id: other_user.id, content: "#{other_user.screen_name} joined this chat!")
+        
+            @chat.users << @authenticated_user
+            @chat.users << other_user
+            # @chat.messages.create(user_id: @authenticated_user.id, content: "#{@authenticated_user.screen_name} joined this chat!")
+            # @chat.messages.create(user_id: other_user.id, content: "#{other_user.screen_name} joined this chat!")
 
             redirect_to @chat
         else
