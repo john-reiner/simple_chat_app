@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  resources :chats do 
+  resources :chats do
     resources :messages
   end
+
+
   root 'pages#home'
   post "/login", to: "sessions#login"
   get "/logout", to: "sessions#logout"

@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
     before_action :authenticate_user, only: %i[ show ]
+    
     def show
-        @users = User.all_except(@authenticated_user)
-        @messages = Message.all
 
     end
 
@@ -13,9 +12,14 @@ class UsersController < ApplicationController
     def create
 
         @user = User.new(user_params)
-
+        
         if @user.save
-            redirect_to user_url(@user), notice: "User was successfully created."
+            secret_key = Rails.application.secret_key_base
+            token = JWT.encode({
+                user_id: @user.id,
+            }, secret_key)
+            session[:token] = token
+            redirect_to chats_url, notice: "User was successfully created."
         else
             flash[:errors] = @user.errors.full_messages
             render :new, status: :unprocessable_entity
