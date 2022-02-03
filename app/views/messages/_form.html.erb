@@ -1,4 +1,4 @@
-<%= form_with model: [@chat, @message], id: dom_id(@message), remote: true, class: 'd-flex' do |f| %>
+<%= form_with model: [@authenticated_user, @chat, message], remote: true, class: 'd-flex' do |f| %>
 
     <% if message.errors.any? %>
         <div class="alert alert-danger">
