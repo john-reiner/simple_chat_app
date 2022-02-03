@@ -1,11 +1,19 @@
 <div class="container">
-    <%= link_to  "Messages", chats_path %>
     <h2 class="text-center"><%= @chat.name %></h2>
-    <div id="messages">
-        <%= turbo_stream_from @chat %>
-        
-        <%= render  @chat.messages %>
+    <div id="messages-container">
+
+        <%= turbo_frame_tag "messages" do %>
+            <%= render  @messages %>
+        <% end %>
 
     </div>
-    <%= render  "layouts/new_message_form" %>
+    <%= turbo_stream_from "messages" %>
+
+    <%= turbo_frame_tag "message_form" do %>
+
+        <%= render "messages/form", message: @chat.messages.build %>
+    
+    <% end %>
+
+
 </div>

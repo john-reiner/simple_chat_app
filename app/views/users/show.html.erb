@@ -2,7 +2,9 @@
     <div class="row">
         <div class="col-4">
             <h2 class="text-center">Chats</h2>
-        </div>
 
+            <%= render partial: 'shared/chat_link', collection: @chats, as: :chat  %>
+
+        </div>
     </div>
 </div>

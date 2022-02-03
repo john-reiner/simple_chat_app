@@ -2,7 +2,7 @@ class UsersController < ApplicationController
     before_action :authenticate_user, only: %i[ show ]
     
     def show
-
+        @chats = @authenticated_user.chats
     end
 
     def new
