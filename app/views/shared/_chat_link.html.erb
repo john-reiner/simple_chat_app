@@ -1,11 +1,15 @@
-<div class="card w-75">
-    <div class="card-body">
-        <div class="chat-link-header">
-            <h5 class="card-title"><%= chat.messages.last.user.screen_name %></h5>
-            <small class="text-muted"><%= chat.messages.last.created_at.localtime.strftime("%I:%M %p") %></small>
+<div class="col-sm-6 mb-3">
+    <div class="card text-white bg-dark">
+        <div class="card-body">
+            <div class="chat-link-header">
+                <h5 class="card-title"><%= chat.messages.last.user.screen_name %></h5>
+                <small class="text-muted"><%= chat.messages.last.created_at.localtime.strftime("%I:%M %p") %></small>
+            </div>
+            <hr>
+            <%= render  "messages/message", message: chat.messages.last %>
+            <hr>
+            <%= button_to "Show", user_chat_path(@authenticated_user, chat), class: "btn btn-outline-success", :method => "get" %>
         </div>
-        <%= render  "messages/message", message: chat.messages.last %>
-        <%= button_to "Show", user_chat_path(@authenticated_user, chat), class: "btn btn-outline-success", :method => "get" %>
     </div>
 </div>
 

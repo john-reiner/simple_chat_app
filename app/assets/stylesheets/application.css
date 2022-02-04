@@ -14,9 +14,12 @@
  *= require_self
  */
 
-#messages-container {
+#body {
     background-color: #333;
-    color: whitesmoke;
+    color: whitesmoke
+}
+
+#messages-container {
     height: 80vh;
     overflow-y: scroll;
     padding: 1em;
@@ -30,18 +33,10 @@
     justify-content: flex-end;
 }
 
-.message {
-    width: fit-content;
-    background-color: #666;
-    max-width: 70%;
-    padding: 1em;
-    border-radius: 20px;
-    margin-bottom: 1em;    
-}
-
 .user-message {
     width: fit-content;
-    background-color: rgb(64, 132, 88);
+    
+    background-color: #666;
     /* max-width: 70%; */
     padding: 1em;
     border-radius: 20px;
@@ -73,10 +68,9 @@
     align-items: center;
 }
 
-.chat-link-content {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+.chat-link-container {
+    background-color: #333;
+
 }
 
 .chat-link-header {
@@ -85,7 +79,12 @@
     align-items: center;
 }
 
-#user-show-heading {
+#show-heading {
+    height: 15vh;
     justify-content: center;
     align-items: center;
+}
+#message-form{
+
+    margin-top: 100;
 }

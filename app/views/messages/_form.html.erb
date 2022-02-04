@@ -1,14 +1,16 @@
-<%= form_with model: [@authenticated_user, @chat, message], remote: true, class: 'd-flex' do |f| %>
 
-    <% if message.errors.any? %>
-        <div class="alert alert-danger">
-            <% message.errors.each do |err|%>
-                <p><%= err.full_message %></p>
-            <% end %>
-        </div>
+    <%= form_with model: [@authenticated_user, @chat, message], remote: true, class: 'd-flex' do |f| %>
+
+        <% if message.errors.any? %>
+            <div class="alert alert-danger">
+                <% message.errors.each do |err|%>
+                    <p><%= err.full_message %></p>
+                <% end %>
+            </div>
+        <% end %>
+
+        <%= f.text_field :content, id: 'chat-text', class: 'form-control msg-content', autocomplete: 'off' %>
+        <%= f.submit "Send", data: {disable_with: false}, class: "btn btn-primary" %>
+
     <% end %>
-
-    <%= f.text_field :content, id: 'chat-text', class: 'form-control msg-content', autocomplete: 'off' %>
-    <%= f.submit "Send", data: {disable_with: false}, class: "btn btn-primary" %>
-
-<% end %>
+</div>

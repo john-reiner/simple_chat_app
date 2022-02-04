@@ -1,19 +1,32 @@
-<div class="container">
-    <h2 class="text-center"><%= @chat.name %></h2>
-    <div id="messages-container">
-    <%= turbo_stream_from "messages" %>
-
-        <%= turbo_frame_tag "messages" do %>
-            <%= render  @messages %>
-        <% end %>
-
+<div class="row pb-5">
+    <div class="col">
+        <div class="row">
+            <div class="col">
+                <div id="show-heading" class="row">
+                    <h2 class="text-center"><%= @chat.name %></h2>
+                
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col bg-dark pb-3">
+                <div id="messages-container">
+                    <%= turbo_stream_from "messages" %>
+                    <%= turbo_frame_tag "messages" do %>
+                        <%= render  @messages %>
+                    <% end %>
+                </div>
+                <div id="message-form">
+                    <%= render "messages/form", message: @chat.messages.build %>
+                </div>
+            </div>
+        </div>
     </div>
+    <div class="row">
+        <div class="col ">
+        
 
-    <%= turbo_frame_tag "message_form" do %>
-
-        <%= render "messages/form", message: @chat.messages.build %>
-
-    <% end %>
-
-
+        </div>
+    </div>
 </div>

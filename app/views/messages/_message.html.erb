@@ -1,15 +1,7 @@
 <%= turbo_frame_tag dom_id(message) do %>
-        <% if message.user.id == @authenticated_user.id or message == nil %>
-            <div class="user-message-container">
-                <div class="user-message">
-                    <p><%= message.content %></p>
-                </div>
-            </div>
-        <% else %>
-            <div class="message-container">
-                <div class="message">
-                    <p><%= message.content %></p>
-                </div>
-            </div>
-        <% end %>
+    <div class="cont-<%= message.user.id %>">
+        <div class="user-message msg-<%= message.user.id %>">
+            <p><%= message.content %></p>
+        </div>
+    </div>
 <% end %>
