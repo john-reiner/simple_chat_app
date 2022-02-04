@@ -1,13 +1,13 @@
 <div class="container">
     <h2 class="text-center"><%= @chat.name %></h2>
     <div id="messages-container">
+    <%= turbo_stream_from "messages" %>
 
         <%= turbo_frame_tag "messages" do %>
             <%= render  @messages %>
         <% end %>
 
     </div>
-    <%= turbo_stream_from "messages" %>
 
     <%= turbo_frame_tag "message_form" do %>
 

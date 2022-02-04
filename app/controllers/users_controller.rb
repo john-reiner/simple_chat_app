@@ -3,6 +3,7 @@ class UsersController < ApplicationController
     
     def show
         @chats = @authenticated_user.chats
+        @chat = Chat.new
     end
 
     def new
@@ -19,7 +20,7 @@ class UsersController < ApplicationController
                 user_id: @user.id,
             }, secret_key)
             session[:token] = token
-            redirect_to chats_url, notice: "User was successfully created."
+            redirect_to @user, notice: "User was successfully created."
         else
             flash[:errors] = @user.errors.full_messages
             render :new, status: :unprocessable_entity

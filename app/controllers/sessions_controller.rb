@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
           user_id: user.id,
       }, secret_key)
       session[:token] = token
-      redirect_to chats_url
+      redirect_to user
     else
 
     end

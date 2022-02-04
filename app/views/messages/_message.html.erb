@@ -1,15 +1,15 @@
 <%= turbo_frame_tag dom_id(message) do %>
-    <div class="row">
-        <div class="col">
-            <div class="message-content">
-                <div class="message-info">
-                    <strong><%= message.user.screen_name %></strong>
-                    <small class="text-muted"><%= message.created_at.localtime.strftime("%I:%M %p") %></small>
+        <% if message.user.id == @authenticated_user.id or message == nil %>
+            <div class="user-message-container">
+                <div class="user-message">
+                    <p><%= message.content %></p>
                 </div>
-
-                <p><%= message.content %></p>
             </div>
-        
-        </div>
-    </div>
+        <% else %>
+            <div class="message-container">
+                <div class="message">
+                    <p><%= message.content %></p>
+                </div>
+            </div>
+        <% end %>
 <% end %>
