@@ -2,9 +2,10 @@ import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
     connect() {
-        console.log("connected")
-        const messages = document.getElementById("messages")
-        messages.addEventListener("DOMNodeInserted", this.resetScroll)
+        const messages = document.getElementById("messages-container")
+        messages.addEventListener("DOMNodeInserted", () => {
+            this.resetScroll(messages)
+        })
         this.resetScroll(messages)
     }
 
@@ -12,9 +13,7 @@ export default class extends Controller {
         console.log("disconnected")
     }
 
-    resetScroll() {
-        console.log("here")
+    resetScroll(messages) {
         messages.scrollTop = messages.scrollHeight - messages.clientHeight;
-        console.log(messages)
     }
 }

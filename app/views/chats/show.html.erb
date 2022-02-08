@@ -11,7 +11,7 @@
         <hr>
         <div class="row">
             <div class="col bg-dark pb-3">
-                <div id="messages-container" data-controller="scroll"  >
+                <div id="messages-container" data-controller="scroll">
                     <%= turbo_stream_from "messages"%>
                     <%= turbo_frame_tag "messages" do %>
                         <%= render  @messages %>
