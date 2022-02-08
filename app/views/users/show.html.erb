@@ -5,19 +5,16 @@
                 <h2 class="text-center">Chats</h2>
             </div>
             <div class="col">
-                <%= render "shared/new_chat_form", chat: @chat %>
+                <%= button_to "New Chat", new_user_chat_path(@authenticated_user), class: "btn btn-success", :method => "get" %>
             </div>
         </div>
         <hr>
-        <div class="row">
-            <div class="col">
-                <%= turbo_stream_from "chat_links" %>
-                <%= turbo_frame_tag "chat_links" do %>
-                    <%= render partial: 'shared/chat_link', collection: @chats, as: :chat, locals: { user: @authenticated_user }  %>
-                <% end %>
+        <%= turbo_stream_from "chat_links" %>
+        <%= turbo_frame_tag "chat_links" do %>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <%= render partial: 'shared/chat_link', collection: @chats, as: :chat, locals: { user: @authenticated_user }  %>
             </div>
-        </div>
-
+        <% end %>
     </div>
 
 </div>

@@ -10,17 +10,7 @@
         </div>
         <hr>
         <div class="row">
-            <div class="col bg-dark pb-3">
-                <div id="messages-container" data-controller="scroll">
-                    <%= turbo_stream_from "messages"%>
-                    <%= turbo_frame_tag "messages" do %>
-                        <%= render  @messages %>
-                    <% end %>
-                </div>
-                <div id="message-form">
-                    <%= render "messages/form", message: @chat.messages.build %>
-                </div>
-            </div>
+
         </div>
     </div>
     <div class="row">
