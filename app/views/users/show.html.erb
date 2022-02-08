@@ -8,10 +8,15 @@
                 <%= render "shared/new_chat_form", chat: @chat %>
             </div>
         </div>
-    <hr>
-    <div class="row">
-        <%= render partial: 'shared/chat_link', collection: @chats, as: :chat  %>
-    </div>
+        <hr>
+        <div class="row">
+            <div class="col">
+                <%= turbo_stream_from "chat_links" %>
+                <%= turbo_frame_tag "chat_links" do %>
+                    <%= render partial: 'shared/chat_link', collection: @chats, as: :chat, locals: { user: @authenticated_user }  %>
+                <% end %>
+            </div>
+        </div>
 
     </div>
 

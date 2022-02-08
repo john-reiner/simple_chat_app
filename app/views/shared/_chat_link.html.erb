@@ -1,15 +1,27 @@
-<div class="col-sm-6 mb-3">
-    <div class="card text-white bg-dark">
-        <div class="card-body">
-            <div class="chat-link-header">
-                <h5 class="card-title"><%= chat.messages.last.user.screen_name %></h5>
-                <small class="text-muted"><%= chat.messages.last.created_at.localtime.strftime("%I:%M %p") %></small>
+<%= turbo_frame_tag dom_id(chat) do %>
+    <div class="col-sm-6 mb-3">
+        <div class="card text-white bg-dark">
+            <div class="card-body">
+                <div class="chat-link-header">
+                    <h5 class="card-title"><%= chat.messages.count > 0 ? chat.messages.last.user.screen_name : nil %></h5>
+                    <small class="text-muted"><%= chat.messages.count > 0 and chat.messages.last.created_at.localtime.strftime("%I:%M %p") %></small>
+                </div>
+                <hr>
+                
+                <%= turbo_stream_from "chat_link_message" %>
+                <% if chat.messages.count > 0 %>
+
+                    <%= turbo_frame_tag "chat_link_message" do %>
+                        <%= render  "messages/message", message: chat.messages.last %>
+                    <% end %>
+
+                    <hr>
+
+                    <%= button_to "Show", user_chat_path(user, chat) , class: "btn btn-outline-success", data: { turbo: false }, :method => "get" %>
+
+                <% end %>
+
             </div>
-            <hr>
-            <%= render  "messages/message", message: chat.messages.last %>
-            <hr>
-            <%= button_to "Show", user_chat_path(@authenticated_user, chat), class: "btn btn-outline-success", :method => "get" %>
         </div>
     </div>
-</div>
-
+<% end %>

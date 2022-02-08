@@ -9,11 +9,5 @@ class MessagesController < ApplicationController
             content: params[:message][:content]
         )
 
-        respond_to do |format|
-            if !@message.save
-                # format.turbo_stream { render turbo_stream: turbo_stream.replace("message_form", partial: "messages/form", locals: {message: @message})}
-                format.html { render partial: "form" }
-            end
-        end
     end
 end
