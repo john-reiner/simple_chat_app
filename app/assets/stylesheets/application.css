@@ -19,6 +19,14 @@
     color: whitesmoke
 }
 
+#logo{
+    color: rgb(64, 132, 88)
+}
+
+.green {
+    color: rgb(64, 132, 88)
+}
+
 #messages-container {
     height: 80vh;
     overflow-y: scroll;
@@ -89,26 +97,26 @@
     margin-top: 100;
 }
 
-#login-form-container {
+.form-container {
     height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#login-tile{
+.tile{
     border: rgb(64, 132, 88) solid 1px;
     padding: 1em 2em;
     border-radius: .25rem;
 
 }
 
-#login-heading {
+.heading {
     /* border: blue solid 1px; */
     margin-bottom: 2em;
 }
 
-#login-form {
+.form {
     margin-bottom: 1em;
 }
 
