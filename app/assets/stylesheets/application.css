@@ -88,3 +88,22 @@
 
     margin-top: 100;
 }
+
+#login-form-container {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#login-tile{
+    border: #666 solid 1px;
+    padding: 1em;
+    border-radius: .25rem;
+
+}
+
+#login-heading {
+    /* border: blue solid 1px; */
+    margin-bottom: 2em;
+}
