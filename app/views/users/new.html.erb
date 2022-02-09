@@ -1,9 +1,39 @@
-<h1>Registration</h1>
 
 <div class="container">
     <div class="row">
-        <div class="col">
-            <%= form_with model: @user do |f| %>
+        <div class="col form-container">
+            <div class="form-tile">
+                <div class="row heading">
+                    <h1 class="green">Registration</h1>
+                </div>
+                <div class="row-form">
+                    <%= form_with model: @user do |f| %>
+                            
+                        <div class="mb-3">
+                            <%= f.label :email, "Email", class: "form-label" %>
+                            <%= f.text_field :email, class: "form-control" %>
+                            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        </div>
+                        <div class="mb-3">
+                            <%= f.label :screen_name, "Screen Name", class: "form-label"  %>
+                            <%= f.text_field :screen_name, class: "form-control"%>
+                            <div class="invalid-feedback">
+                                Please choose a username.
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <%= f.label :password, "Password", class: "form-label"  %>
+                            <%= f.text_field :password, class: "form-control" %>
+                        </div>
+                        <div class="mb-3">    
+                            <%= f.label :password_confirmation, "Confirm Password", class: "form-label"  %>
+                            <%= f.text_field :password_confirmation, class: "form-control" %>
+                        </div>
+
+                        <%= f.submit class: "btn btn-success" %>
+                    <% end %>
+                
+                </div>
                 <% if @user.errors.any? %>
                     <div class="alert alert-danger">
                         <% @user.errors.full_messages.each do |message| %>
@@ -11,34 +41,12 @@
                             <%= message %>
                         </div>
                         
-                        <% end %>
+                    <% end %>
+                <% end %>
                         
                     </div>
-                    
-                <% end %>
-                <div class="mb-3">
-                    <%= f.label :email, "Email", class: "form-label" %>
-                    <%= f.text_field :email, class: "form-control" %>
-                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-                </div>
-                <div class="mb-3">
-                    <%= f.label :screen_name, "Screen Name", class: "form-label"  %>
-                    <%= f.text_field :screen_name, class: "form-control"%>
-                    <div class="invalid-feedback">
-                        Please choose a username.
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <%= f.label :password, "Password", class: "form-label"  %>
-                    <%= f.text_field :password, class: "form-control" %>
-                </div>
-                <div class="mb-3">    
-                    <%= f.label :password_confirmation, "Confirm Password", class: "form-label"  %>
-                    <%= f.text_field :password_confirmation, class: "form-control" %>
-                </div>
-
-                <%= f.submit class: "btn btn-primary" %>
-            <% end %>
+            
+            </div>
         </div>
     </div>
 </div>
