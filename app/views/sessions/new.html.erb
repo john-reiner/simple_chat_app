@@ -19,7 +19,10 @@
                             <%= f.label :password, "Password", class: "form-label"  %>
                             <%= f.password_field :password, class: "form-control" %>
                         </div>
-                        <%= f.submit "Login", class: "btn btn-primary" %>
+                        <div class="submit-links">
+                            <%= f.submit "Login", class: "btn btn-success" %>
+                            <%= link_to  "Sign Up", new_user_path, class: "link-success" %>
+                        </div>
                     <% end %>
                 </div>
 

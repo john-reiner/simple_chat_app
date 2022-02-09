@@ -97,7 +97,7 @@
 }
 
 #login-tile{
-    border: #666 solid 1px;
+    border: rgb(64, 132, 88) solid 1px;
     padding: 1em 2em;
     border-radius: .25rem;
 
@@ -110,4 +110,10 @@
 
 #login-form {
     margin-bottom: 1em;
+}
+
+.submit-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
 }
