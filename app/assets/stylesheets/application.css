@@ -90,7 +90,7 @@
 }
 
 #login-form-container {
-    height: 80vh;
+    height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -98,7 +98,7 @@
 
 #login-tile{
     border: #666 solid 1px;
-    padding: 1em;
+    padding: 1em 2em;
     border-radius: .25rem;
 
 }
@@ -106,4 +106,8 @@
 #login-heading {
     /* border: blue solid 1px; */
     margin-bottom: 2em;
+}
+
+#login-form {
+    margin-bottom: 1em;
 }

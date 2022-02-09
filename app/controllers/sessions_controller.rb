@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   def login
+
     user = User.find_by(screen_name: params[:screen_name])
     
     if user and user.authenticate(params[:password])
@@ -11,7 +12,8 @@ class SessionsController < ApplicationController
       session[:token] = token
       redirect_to user
     else
-
+      flash[:message] = "Unable to verify screen name or password please try again."
+      redirect_to new_session_path
     end
   end
 
