@@ -1,5 +1,5 @@
 <%= form_with model: [user, chat, message], remote: true, class: 'd-flex', data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset"} do |f| %>
-
+    
     <% if message.errors.any? %>
         <div class="alert alert-danger">
             <% message.errors.each do |err|%>
