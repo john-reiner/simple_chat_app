@@ -1,22 +1,25 @@
-<div class="row pb-5">
-    <div class="col">
-        <div class="row">
-            <div class="col">
-                <div id="show-heading" class="row">
-                    <h2 class="text-center"><%= @chat.name %></h2>
-                
+<div class="container">
+    <div class="row pb-5">
+        <div class="col">
+            <div class="row">
+                <div id="show-heading" class="col">
+                    <% @other_users.each do |user| %>
+                        <h2><%= user.screen_name %></h2>
+                    <% end %>
                 </div>
             </div>
-        </div>
-        <hr>
-        <div class="row">
-
-        </div>
-    </div>
-    <div class="row">
-        <div class="col ">
         
-
+        <div class="row">
+            <div id="messages-container" data-controller="scroll" class="col">
+                <%= turbo_stream_from "messages"%>
+                <%= turbo_frame_tag "messages" do %>
+                    <%= render  @messages %>
+                <% end %>
+            </div>
+            <div id="message-form">
+                <%= render  "messages/form", user: @authenticated_user, chat: @chat, message: @message %>
+            </div>
+        </div>
         </div>
     </div>
 </div>

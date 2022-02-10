@@ -19,6 +19,27 @@
     color: whitesmoke
 }
 
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+background: background-color: rgb(30, 33, 36);
+; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: #666; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: rgb(64, 132, 88); 
+}
+
 #logo{
     color: rgb(64, 132, 88)
 }
@@ -28,10 +49,18 @@
 }
 
 #messages-container {
-    height: 80vh;
-    overflow-y: scroll;
+    background-color: rgb(30, 33, 36);
+    height: 75vh;
+    overflow-y: auto;
+    scrollbar-width: thin;
     padding: 1em;
 }
+
+#message-form{
+    padding: 1em;
+    background-color: rgb(30, 33, 36);
+}
+
 .message-container {
     display: flex;
 }
@@ -44,10 +73,10 @@
 .user-message {
     width: fit-content;
     
-    background-color: #666;
+    border: #666, solid 1px;
     /* max-width: 70%; */
     padding: 1em;
-    border-radius: 20px;
+    border-radius: 5px;
     margin-bottom: 1em;
 }
 
@@ -88,14 +117,14 @@
 }
 
 #show-heading {
-    height: 15vh;
+    /* height: 5vh; */
+    padding-top: 1em;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
 }
-#message-form{
 
-    margin-top: 100;
-}
+
 
 .form-container {
     height: 90vh;

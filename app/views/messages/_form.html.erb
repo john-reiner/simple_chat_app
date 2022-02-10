@@ -8,7 +8,9 @@
         </div>
     <% end %>
 
+
     <%= f.text_field :content, id: 'chat-text', class: 'form-control msg-content', autocomplete: 'off' %>
-    <%= f.submit "Send", data: {disable_with: false}, class: "btn btn-primary" %>
+
+    <%= f.submit "Send", data: {disable_with: false}, class: "btn btn-outline-success", style: "margin-left: 1em;" %>
 
 <% end %>

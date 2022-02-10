@@ -7,6 +7,7 @@ class ChatsController < ApplicationController
         @chat = Chat.find_by(id: params[:id])
         @messages = @chat.messages
         @message = Message.new
+        @other_users = @chat.users.where.not(id: @authenticated_user)
 
     end
 
@@ -21,7 +22,7 @@ class ChatsController < ApplicationController
     def create
         other_user = User.find_by(screen_name: params[:chat][:screen_name])
         if other_user
-            @chat = Chat.create(name: "Chat with #{@authenticated_user.screen_name} and #{other_user.screen_name}")
+            @chat = Chat.create(name: nil)
             if @chat.save
                 @chat.users << @authenticated_user
                 @chat.users << other_user
