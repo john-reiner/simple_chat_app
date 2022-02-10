@@ -16,6 +16,13 @@
                     <%= link_to  "Sign Out", logout_path, class: "nav-link active" %>
                 </li>
             </ul>
+            
+            <% if flash[:notice] %>
+                <div id="passwordHelpInline" class="text-danger" style="margin-right: 1em;">
+                    <%= flash[:notice] %>
+                </div>
+            <% end %>
+            
             <%= form_with model: [@authenticated_user, Chat.new], remote: true, class: 'd-flex' do |f|%>
                 <%= f.text_field :screen_name, label: "screen name", class: "form-control me-2", placeholder: "New Chat" %>
                 <%= f.submit "Search", class: "btn btn-outline-success" %>

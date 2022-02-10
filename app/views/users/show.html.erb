@@ -4,10 +4,6 @@
             <div class="col">
                 <h2 class="text-center">Chats</h2>
             </div>
-            <div class="col">
-                <%= render  "shared/new_chat_form", chat: @chat, user: @authenticated_user %>
-                <%= button_to "New Chat", new_user_chat_path(@authenticated_user), class: "btn btn-success", :method => "get" %>
-            </div>
         </div>
         <hr>
         <%= turbo_stream_from "chat_links" %>
