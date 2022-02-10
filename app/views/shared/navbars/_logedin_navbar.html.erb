@@ -1,23 +1,25 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/">
+        <%= link_to @authenticated_user, class: "navbar-brand" do %> 
             <%= render  "shared/navbars/logo" %>
             <%= @authenticated_user.screen_name %>
-        </a>
+        <% end %>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mb-2 mb-lg-0">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <%= link_to  "Chats", user_path(@authenticated_user), class: "nav-link active" %>
                 </li>
-            </ul>
-            <ul class="navbar-nav ">
                 <li class="nav-item">
                     <%= link_to  "Sign Out", logout_path, class: "nav-link active" %>
-                </li>        
+                </li>
             </ul>
+            <%= form_with model: [@authenticated_user, Chat.new], remote: true, class: 'd-flex' do |f|%>
+                <%= f.text_field :screen_name, label: "screen name", class: "form-control me-2", placeholder: "New Chat" %>
+                <%= f.submit "Search", class: "btn btn-outline-success" %>
+            <% end %>
         </div>
     </div>
 </nav>
