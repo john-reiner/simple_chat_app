@@ -111,6 +111,10 @@
 
 }
 
+#reg-tile {
+    min-width: 350px;
+}
+
 .heading {
     /* border: blue solid 1px; */
     margin-bottom: 2em;

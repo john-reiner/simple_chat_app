@@ -23,6 +23,7 @@ class UsersController < ApplicationController
             redirect_to @user, notice: "User was successfully created."
         else
             flash[:errors] = @user.errors.full_messages
+            # byebug
             render :new, status: :unprocessable_entity
         end
 
