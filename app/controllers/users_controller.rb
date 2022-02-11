@@ -4,6 +4,7 @@ class UsersController < ApplicationController
     def show
         @chats = @authenticated_user.chats
         @chat = Chat.new
+        @message = Message.new
     end
 
     def new
