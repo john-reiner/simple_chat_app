@@ -11,8 +11,8 @@
         
         <div class="row">
             <div id="messages-container" data-controller="scroll" class="col">
-                <%= turbo_stream_from "messages"%>
-                <%= turbo_frame_tag "messages" do %>
+                <%= turbo_stream_from "messages" %>
+                <%= turbo_frame_tag dom_id(@chat) do %>
                     <%= render  @messages %>
                 <% end %>
             </div>
