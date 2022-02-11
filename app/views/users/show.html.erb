@@ -7,7 +7,7 @@
         </div>
         <hr>
         <%= turbo_stream_from "chat_links" %>
-        <%= turbo_frame_tag "chat_links" do %>
+        <%= turbo_frame_tag dom_id(@authenticated_user) do %>
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 <%= render partial: 'shared/chat_link', collection: @chats, as: :chat, locals: { user: @authenticated_user }  %>
             </div>
