@@ -75,3 +75,4 @@ gem 'bcrypt'
 gem "jwt"
 
 gem 'ddtrace', require: 'ddtrace/auto_instrument'
+gem 'lograge'
