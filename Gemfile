@@ -76,3 +76,4 @@ gem "jwt"
 
 gem 'ddtrace', require: 'ddtrace/auto_instrument'
 gem 'lograge'
+gem 'dogstatsd-ruby'

@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
     before_action :authenticate_user, only: %i[ show ]
+
+    require 'datadog/statsd'
+
+    statsd = Datadog::Statsd.new('localhost', 8125)
     
     def show
         @chats = @authenticated_user.chats
@@ -27,6 +31,8 @@ class UsersController < ApplicationController
             # byebug
             render :new, status: :unprocessable_entity
         end
+
+        statsd.gauge('users.total', User.all.count, tags: ['environment:production'])
 
     end
 
