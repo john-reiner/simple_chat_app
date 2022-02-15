@@ -11,3 +11,15 @@ if [ -n "$DATABASE_URL" ]; then
         sed -i "s/<YOUR DBNAME>/${BASH_REMATCH[5]}/" "$DD_CONF_DIR/conf.d/postgres.d/conf.yaml"
     fi
 fi
+
+#!/usr/bin/env bash
+
+# Update the Redis configuration from above using the Heroku application environment variable
+if [ -n "$REDIS_URL" ]; then
+    REDISREGEX='redis://([^:]*):([^@]+)@([^:]+):([^/]+)$'
+    if [[ $REDIS_URL =~ $REDISREGEX ]]; then
+        sed -i "s/<YOUR_REDIS_HOST>/${BASH_REMATCH[3]}/" "$DD_CONF_DIR/conf.d/redisdb.d/conf.yaml"
+        sed -i "s/<YOUR_REDIS_PASSWORD>/${BASH_REMATCH[2]}/" "$DD_CONF_DIR/conf.d/redisdb.d/conf.yaml"
+        sed -i "s/<YOUR_REDIS_PORT>/${BASH_REMATCH[4]}/" "$DD_CONF_DIR/conf.d/redisdb.d/conf.yaml"
+    fi
+fi
