@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
     require 'datadog/statsd'
 
-    statsd = Datadog::Statsd.new('localhost', 8125)
+    
     
     def show
         @chats = @authenticated_user.chats
@@ -31,8 +31,8 @@ class UsersController < ApplicationController
             # byebug
             render :new, status: :unprocessable_entity
         end
-
-        statsd.gauge('users.total', User.all.count, tags: ['environment:production'])
+        statsd = Datadog::Statsd.new('localhost', 8125)
+        statsd.gauge('users.total', User.all.count, tags: ['env:production'])
 
     end
 
