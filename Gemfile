@@ -73,4 +73,5 @@ end
 
 gem 'bcrypt'
 gem "jwt"
-gem 'faker'
+
+gem 'ddtrace', require: 'ddtrace/auto_instrument'
