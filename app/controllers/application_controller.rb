@@ -10,8 +10,8 @@ class ApplicationController < ActionController::Base
                 session[:token] = nil
                 redirect_to root_path
             end
-        else
-            redirect_to new_session_path
+        # else
+        #     redirect_to new_session_path
         end
     end
 
