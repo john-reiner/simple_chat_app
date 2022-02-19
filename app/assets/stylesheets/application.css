@@ -19,6 +19,8 @@
     color: whitesmoke
 }
 
+
+
 /* width */
 ::-webkit-scrollbar {
     width: 10px;
@@ -155,4 +157,19 @@ background: rgb(64, 132, 88);
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+}
+
+#current-features {
+    padding: 1em;
+    border-radius: 5px;
+}
+
+#about-heading {
+    padding: 1em;
+    border-radius: 5px;
+}
+
+#contributers {
+    padding: 1em;
+    border-radius: 5px;
 }

@@ -1,13 +1,79 @@
 <div class="container">
+
     <div class="row">
-        <div class="col">
-            <h1 class="green">whereUapp</h1>
-            <p>whereUapp is an <a target="_blank"  href="https://github.com/john-reiner/where_u_app">open-source</a> chat application designed for full user to message incryption, keeping messages 100% anomomus and data transparent</p> 
+
+        <div id="about-heading" class="col bg-dark mb-2 mt-4">
+            <h1 class="green text-center"><%= render  "/shared/navbars/logo" %> whereUapp</h1> 
+            <p>whereUapp is an <a target="_blank"  href="https://github.com/john-reiner/where_u_app">open-source</a> chat application designed for full user to message encryption, keeping messages 100% anonymous and data transparent</p>
+        </div>
+
     </div>
+
     <div class="row">
-        <h2>Current Features</h2>
-        <table class="table table-dark table-striped">
-            ...
-        </table>
+
+        <div id="current-features" class="col bg-dark mb-2">
+
+            <h2>Current Features</h2>
+
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item bg-dark">
+
+                    <h2 class="accordion-header" id="headingOne">
+
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            User Authentication
+                        </button>
+
+                    </h2>
+
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div class="accordion-body"> 
+                            <strong>Users passwords are stored with <a target="_blank" href="https://github.com/bcrypt-ruby/bcrypt-ruby">full encryption</a></strong>. Users don't have to login every time to use the app, sessions are stored for a better authentication experience. Screen names are unique in the database.
+                        </div>
+                    </div>
+                </div>
+            <div class="accordion-item bg-dark">
+                <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Real time messaging.
+                </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    Like any decent chat application should have, messages render in real time without page reloads using <a target="_blank" href="https://turbo.hotwired.dev/handbook/installing">Turbo Rails</a>.
+                </div>
+                </div>
+            </div>
+            <div class="accordion-item bg-dark">
+                <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    All chats at a glance.
+                </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    Users' home screen displays each message with the latest message displayed. This is all shown in real time, as a message comes in its display instantly.       
+                </div>
+            </div>
+            </div>
+
+        </div>
+        
     </div>
+
+    <div class="row">
+
+        <div id="contributers" class="col bg-dark">
+
+            <h2>Contributers</h2>
+            <ul class="list-group bg-dark">
+                <li class="list-group-item list-group-item-dark">John Reiner</li>
+                <li class="list-group-item list-group-item-dark">Sam DeBarros</li>
+                <li class="list-group-item list-group-item-dark">Eric Jordan</li>
+                <li class="list-group-item list-group-item-dark">Rob Matera</li>
+                <li class="list-group-item list-group-item-dark">Ryan Wendaur</li>
+            </ul>
+
+    </div>
+
 </div>
