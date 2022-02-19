@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   root 'pages#home'
   post "/login", to: "sessions#login"
   get "/logout", to: "sessions#logout"
+  get "/about", to: "pages#about"
   resources :sessions
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
