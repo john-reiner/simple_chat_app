@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :authenticate_user
+  before_action :authenticate_user, only: %i[home]
 
   def home
     if @authenticated_user
@@ -9,6 +9,6 @@ class PagesController < ApplicationController
   end
 
   def about
-    
+
   end
 end
