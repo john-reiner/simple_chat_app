@@ -1,9 +1,6 @@
 class UsersController < ApplicationController
     before_action :authenticate_user, only: %i[ show ]
 
-
-    
-    
     def show
         @chats = @authenticated_user.chats
         @chat = Chat.new
@@ -27,7 +24,6 @@ class UsersController < ApplicationController
             redirect_to @user, notice: "User was successfully created."
         else
             flash[:errors] = @user.errors.full_messages
-            # byebug
             render :new, status: :unprocessable_entity
         end
 
