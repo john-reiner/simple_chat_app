@@ -1,4 +1,15 @@
-<h1>whereUapp</h1>
-<p>A simple chat app</p>
-
-<%= link_to  "Sign Up", new_user_path %>
+<div class="container">
+    <div class="row">
+        <div id="home-container" class="col">
+            <div id="home-content">
+                <h1 class="text-success">whereUapp</h1>
+                <p>A simple chat app</p>
+                    <div id="home-links">
+                        <%= link_to "Sign In", new_session_path, class: "btn btn-outline-success"%>
+                        <%= link_to "Sign Up", new_user_path, class: "link-success" %>
+                    </div>
+            
+            </div>
+        </div>
+    </div>
+</div>
